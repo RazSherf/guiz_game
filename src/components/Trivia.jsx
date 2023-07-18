@@ -18,6 +18,7 @@ const Trivia = ({data,
 
 
 
+   
     const [correctAnswer] = useSound(correct);
     const [wrongAnswer] = useSound(wrong);
     const delay = (duration,callback)=>{
