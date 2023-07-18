@@ -2,12 +2,27 @@ import { useState,useEffect,useMemo } from 'react';
 import '../src/app.css'
 import Trivia from './components/Trivia';
 import Timer from './components/Timer';
+import useSound from 'use-sound';
+import play from '../src/sounds/play.mp3'
+import wrong from '../src/sounds/wrong.mp3'
+import wait from '../src/sounds/wait.mp3'
+import correct from '../src/sounds/correct.mp3'
+
+
 
 function App() {
   const [questionNumber,setQuestionNumber] = useState(1)
   const [stop,setStop] = useState(false)
   const[earned,setEarned] = useState("$0")
+  const[letsPlay] = useSound(play)
+  const[correctAnswer] = useSound(correct)
+  const[wrongAnswer] = useSound(wrong)
 
+
+
+  useEffect(()=>{
+    letsPlay()
+  },[letsPlay])
   const data = [
     {
       id: 1,
