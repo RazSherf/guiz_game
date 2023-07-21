@@ -1,13 +1,10 @@
 import { useState,useEffect,useMemo } from 'react';
-import '../src/app.css'
 import Trivia from './components/Trivia';
 import Timer from './components/Timer';
 import useSound from 'use-sound';
 import play from '../src/sounds/play.mp3'
-import wrong from '../src/sounds/wrong.mp3'
-import wait from '../src/sounds/wait.mp3'
-import correct from '../src/sounds/correct.mp3'
 import data from '../src/data'
+import '../src/app.css'
 
 
 function App() {
@@ -15,9 +12,7 @@ function App() {
   const [stop,setStop] = useState(false)
   const[earned,setEarned] = useState("$0")
   const[letsPlay] = useSound(play)
-  const[correctAnswer] = useSound(correct)
-  const[wrongAnswer] = useSound(wrong)
-
+ 
 
 
   useEffect(()=>{
@@ -64,6 +59,8 @@ function App() {
                     questionNumber={questionNumber}
                     setQuestionNumber={setQuestionNumber}
                     setStop={setStop}
+                    earned={earned}
+                    setEarned={setEarned}
                   />
                 </div>
               </>
