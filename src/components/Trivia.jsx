@@ -37,9 +37,11 @@ const Trivia = ({data,
             correctAnswer()
             setQuestionNumber((prev)=>prev+1)
             setSelectedAnswer(null)
+            setEarned((prev)=>prev+1000)
           }else{
             wrongAnswer()
             setStop(true)
+            setEarned(earned)
             
           }
         })
